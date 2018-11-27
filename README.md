@@ -1,29 +1,32 @@
-# ntutcsie
+# NTUT CSIE Student Association website
 
-## Project setup
+## Introduction
+
+NTUT CSIE Student Association website project.
+
+website：https://csie.ntut.cc
+
+[Vue](https://vuejs.org) + [Vuetify](https://vuetifyjs.com)
+
+## Requirements
+
+NodeJS v10.13.0
+
+## Quick Start
+
+### Project setup
 ```
+git clone https://github.com/ntutcsie/ntutcsie.git
+cd ntutcsie/
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+yarn build
 ```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
