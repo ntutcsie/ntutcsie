@@ -39,30 +39,6 @@
                 </v-flex>
               </v-layout>
             </v-card-text>
-            <v-card-actions>
-              <v-layout column wrap align-center>
-                <iframe
-                  id="comment-board"
-                  v-if="commentBoard.visible"
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSfBSjFNNepjcdvHuUIZK1cxvHF-Eq8CwMHAewN1GIM0H7QTcg/viewform?embedded=true"
-                  width="640"
-                  :height="commentBoard.height"
-                  frameborder="0"
-                  marginheight="0"
-                  marginwidth="0"
-                  @load="loadedCommentBoard"
-                ></iframe>
-                <v-flex xs12>
-                  <v-progress-circular
-                    v-if="commentBoard.loading"
-                    :size="70"
-                    :width="7"
-                    color="primary"
-                    indeterminate
-                  ></v-progress-circular>
-                </v-flex>
-              </v-layout>
-            </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
@@ -85,12 +61,6 @@ import MessageForm from '@/components/MessageForm'
 export default {
   data () {
     return {
-      currentTab: null,
-      commentBoard: {
-        loading: false,
-        visible: false,
-        height: 0
-      }
     }
   },
   methods: {
@@ -103,19 +73,6 @@ export default {
     },
     openEmail (address) {
       window.location.href = 'mailto:' + address
-    },
-    toggleCommentBoard () {
-      const vm = this
-      vm.commentBoard.visible = !vm.commentBoard.visible
-      vm.commentBoard.loading = vm.commentBoard.visible
-      if (!vm.commentBoard.visible) {
-        vm.commentBoard.height = 0
-      }
-    },
-    loadedCommentBoard () {
-      const vm = this
-      vm.commentBoard.loading = false
-      vm.commentBoard.height = 759
     }
   },
   components: {
