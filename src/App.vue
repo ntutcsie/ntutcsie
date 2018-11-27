@@ -17,25 +17,37 @@
             <v-card-text class="display-1 text-xs-center">
               聯絡我們
             </v-card-text>
-            <v-card-text>
+            <v-card-text class="py-5">
               <v-layout row wrap>
                 <v-flex xs6 md3 class="text-xs-center">
-                  <v-btn fab flat large @click="openEmail('csie.sa@ntut.edu.tw')">
-                    <img style="height: 48px; width: 48px;" src="/icons/mail.png" alt>
-                  </v-btn>
+                  <v-tooltip top>
+                    <v-btn slot="activator" fab flat large @click="openEmail('csie.sa@ntut.edu.tw')">
+                      <img style="height: 48px; width: 48px;" src="/icons/mail.png" alt>
+                    </v-btn>
+                    <span class="subheading">寄信給我們</span>
+                  </v-tooltip>
                 </v-flex>
                 <v-flex xs6 md3 class="text-xs-center">
-                  <v-btn fab flat large @click="openSite('https://www.facebook.com/ntutcsieFB')">
-                    <img style="height: 48px; width: 48px;" src="/icons/facebook.png" alt>
-                  </v-btn>
+                  <v-tooltip top>
+                    <v-btn slot="activator" fab flat large @click="openSite('https://www.facebook.com/ntutcsieFB')">
+                      <img style="height: 48px; width: 48px;" src="/icons/facebook.png" alt>
+                    </v-btn>
+                    <span class="subheading">我們的粉專</span>
+                  </v-tooltip>
                 </v-flex>
                 <v-flex xs6 md3 class="text-xs-center">
-                  <v-btn fab flat large @click="openSite('https://line.me/R/ti/p/%40vys5662y')">
-                    <img style="height: 48px; width: 48px;" src="/icons/line.png" alt>
-                  </v-btn>
+                  <v-tooltip top>
+                    <v-btn slot="activator" fab flat large @click="openSite('https://line.me/R/ti/p/%40vys5662y')">
+                      <img style="height: 48px; width: 48px;" src="/icons/line.png" alt>
+                    </v-btn>
+                    <span class="subheading">我們的Line官方帳號</span>
+                  </v-tooltip>
                 </v-flex>
                 <v-flex xs6 md3 class="text-xs-center">
-                  <message-form></message-form>
+                  <v-tooltip top>
+                    <message-form slot="activator"></message-form>
+                    <span class="subheading">留訊息給我們</span>
+                  </v-tooltip>
                 </v-flex>
               </v-layout>
             </v-card-text>
