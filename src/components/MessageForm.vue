@@ -8,13 +8,13 @@
         留下訊息給我們
       </v-card-text>
       <v-card-text>
-        <v-text-field color="primary" v-model="name" label="名字" :rules="[nameRequired]" @blur="name = ''"></v-text-field>
-        <v-text-field color="primary" v-model="email" label="信箱" :rules="[emailRequired]" @blur="email = ''"></v-text-field>
-        <v-textarea color="primary" v-model="message" label="訊息" :rules="[messageRequired]" @blur="message = ''" auto-grow rows="3"></v-textarea>
+        <v-text-field color="primary" v-model="name" label="名字" :rules="[nameRequired]" @blur="name = name === null ? '' : name"></v-text-field>
+        <v-text-field color="primary" v-model="email" label="信箱" :rules="[emailRequired]" @blur="email = email === null ? '' : email"></v-text-field>
+        <v-textarea color="primary" v-model="message" label="訊息" :rules="[messageRequired]" @blur="message = message === null ? '' : message" auto-grow rows="3"></v-textarea>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary" @click="sendForm">送出</v-btn>
+        <v-btn :disabled="!canSend" color="primary" @click="sendForm">送出</v-btn>
       </v-card-actions>
     </v-card>
     <v-dialog v-model="successfulDialog" max-width="300" height="200">
@@ -55,6 +55,9 @@ export default {
     }
   },
   computed: {
+    canSend () {
+      return !!this.name && !!this.email && !!this.message
+    },
     nameRequired () {
       return this.name !== '' || '必填欄位'
     },
